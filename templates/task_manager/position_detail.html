@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Position: {{ position.name }}</h1>
+  <p>List of workers holding this position:</p>
+  <ul>
+    {% for worker in position.worker_set.all %}
+      <li>{{ worker.first_name }} {{ worker.last_name }} ({{ worker.username }})</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'task_manager:position-update' position.pk %}">Edit</a>
+  <a href="{% url 'task_manager:position-delete' position.pk %}">Delete</a>
+  <a href="{% url 'task_manager:position-list' %}">Back to Positions List</a>
+{% endblock %}
