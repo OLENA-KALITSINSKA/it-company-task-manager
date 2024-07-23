@@ -173,11 +173,6 @@ class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
             context['team_members'] = []
             context['projects'] = Project.objects.none()
 
-        # Debug logging
-        print(f"Worker: {worker.username}, Team: {worker.team}")
-        print(f"Team members: {context['team_members']}")
-        print(f"Projects: {context['projects']}")
-
         return context
 
 
