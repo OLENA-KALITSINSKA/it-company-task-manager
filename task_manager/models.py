@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Position(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
         return self.name
@@ -77,7 +77,7 @@ class Task(models.Model):
         null=True
     )
     assignees = models.ManyToManyField(Worker)
-    tags = models.ManyToManyField(Tag, related_name='tasks')
+    tags = models.ManyToManyField(Tag, related_name='tasks', blank=True)
     project = models.ForeignKey(
         Project,
         on_delete=models.SET_NULL,

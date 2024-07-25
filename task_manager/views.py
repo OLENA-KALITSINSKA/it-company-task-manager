@@ -229,7 +229,7 @@ class PositionUpdateView(LoginRequiredMixin, generic.UpdateView):
 class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Position
     template_name = 'task_manager/position_confirm_delete.html'
-    success_url = reverse_lazy('position-list')
+    success_url = reverse_lazy("task_manager:position-list")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
