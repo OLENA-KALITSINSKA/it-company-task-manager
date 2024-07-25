@@ -77,7 +77,7 @@ class Task(models.Model):
         null=True
     )
     assignees = models.ManyToManyField(Worker)
-    tags = models.ManyToManyField(Tag, related_name='tasks')
+    tags = models.ManyToManyField(Tag, related_name='tasks', blank=True)
     project = models.ForeignKey(
         Project,
         on_delete=models.SET_NULL,
